@@ -1,10 +1,13 @@
-﻿Car.fullThrottle();
+﻿Car.blankField();
 class Car
 {
-    string color="red";
-    int maxSpeed=200;
-    public static void fullThrottle()
+    string? color; //blank field
+    int maxSpeed; //blank field
+    public static void blankField()
     {
-        Console.WriteLine("The car is going as fast as it can!");
+        Car myObj = new Car();
+        myObj.color = "red"; //assign value to blank field
+        myObj.maxSpeed = 200; //assign value to blank field
+        Console.WriteLine(myObj.color + " " + myObj.maxSpeed);
     }
 }
