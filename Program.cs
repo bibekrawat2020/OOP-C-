@@ -1,13 +1,10 @@
-﻿Car.PrintColor();
+﻿Car.fullThrottle();
 class Car
 {
-    string color1="red";
-    string color2="blue";
-    public static void PrintColor()
+    string color="red";
+    int maxSpeed=200;
+    public static void fullThrottle()
     {
-        Car c1 = new Car();
-        Console.WriteLine(c1.color1);
-        Car c2 = new Car();
-        Console.WriteLine(c2.color2);
+        Console.WriteLine("The car is going as fast as it can!");
     }
 }
