@@ -1,21 +1,22 @@
-﻿TimePeriod.THours();
-class TimePeriod
+﻿Person.MyMethod();
+public class Person
 {
-    private double _seconds;
-    public double Hours
+    private string _firstName;
+    private string _lastName;
+
+    public Person(string first, string last)
     {
-        get { return _seconds / 3600; }
-        set
-        {
-            if (value < 0 || value > 24)
-                throw new ArgumentOutOfRangeException("value", "Hours must be between 0 and 24.");
-            _seconds = value * 3600;
-        }
+        _firstName = first;
+        _lastName = last;
     }
-    public static void THours()
-    {
-        TimePeriod time = new TimePeriod();
-        time.Hours = 24;
-        Console.WriteLine(time.Hours);
-    }
+
+    public string Name => $"{_firstName} {_lastName}";
+
+    public static void MyMethod()
+{
+    Person person = new Person("Bibek", "Rawat");
+    Console.WriteLine(person.Name);
 }
+}
+
+
