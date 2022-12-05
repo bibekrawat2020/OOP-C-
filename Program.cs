@@ -1,20 +1,21 @@
-﻿Car.myMethod();
-class Car
+﻿TimePeriod.THours();
+class TimePeriod
 {
-    string model;
-    string color;
-    int year;
-    public Car(string modelName, string modelColor, int modelYear)
+    private double _seconds;
+    public double Hours
     {
-        model = modelName;
-        color = modelColor;
-        year = modelYear;
+        get { return _seconds / 3600; }
+        set
+        {
+            if (value < 0 || value > 24)
+                throw new ArgumentOutOfRangeException("value", "Hours must be between 0 and 24.");
+            _seconds = value * 3600;
+        }
     }
-    public static void myMethod()
+    public static void THours()
     {
-        Car myObj1 = new Car("Mustang", "Red", 1969);
-        Car myObj2 = new Car("Astra", "White", 2005);
-        Console.WriteLine(myObj1.model);
-        Console.WriteLine(myObj2.model);
+        TimePeriod time = new TimePeriod();
+        time.Hours = 24;
+        Console.WriteLine(time.Hours);
     }
 }
