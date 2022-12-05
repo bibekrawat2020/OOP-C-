@@ -1,22 +1,37 @@
-﻿Person.MyMethod();
-public class Person
+﻿SaleItem.MyResult();
+public class SaleItem
 {
-    private string _firstName;
-    private string _lastName;
+    string _name;
+    decimal _cost;
 
-    public Person(string first, string last)
+    public SaleItem(string name, decimal cost)
     {
-        _firstName = first;
-        _lastName = last;
+        _name = name;
+        _cost = cost;
     }
 
-    public string Name => $"{_firstName} {_lastName}";
+    public string Name
+    {
+        get => _name;
+        set => _name = value;
+    }
 
-    public static void MyMethod()
-{
-    Person person = new Person("Bibek", "Rawat");
-    Console.WriteLine(person.Name);
+    public decimal Price
+    {
+        get => _cost;
+        set => _cost = value;
+    }
+
+    public static void MyResult()
+    {
+        SaleItem[] items = new SaleItem[3];
+        items[0] = new SaleItem("Apple", 1.99m);
+        items[1] = new SaleItem("Orange", 2.99m);
+        items[2] = new SaleItem("Banana", 3.99m);
+
+        foreach (SaleItem item in items)
+        {
+            Console.WriteLine(item.Name + " " + item.Price);
+        }
+    }
 }
-}
-
-
