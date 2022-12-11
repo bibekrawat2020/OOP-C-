@@ -1,19 +1,27 @@
 ﻿ThisRef.MyMethod();
 public class ThisRef
 {
-    public class SampleClass{
-        public string? SampleProperty { get; set; }
-        public string SampleMethod(string message)
+    public class A
+    {
+        public string whatstring = "Default value";
+        public void WhatMethod()
         {
-            return $"This is the message: {message}";
+            Console.WriteLine($"Coming from class A, what string: {whatstring}!");
+        }
+    }
+    public class B:A
+    {
+        public void setstring (string newvalue)
+        {
+            whatstring = newvalue;
         }
     }
     public static void MyMethod()
     {
-        SampleClass test = new SampleClass();
-        test.SampleProperty = "Pluralsight";
-        Console.WriteLine($"This is the value of the SampleProperty: {test.SampleProperty}");
-        Console.WriteLine($"This is the message from the SampleMethod: {test.SampleMethod("This is cool")}");
+        B c = new B();
+        Console.WriteLine($"Default value of whatstring: {c.whatstring} coming from class A!");
+        c.setstring("New value");
+        Console.WriteLine($"Calling inherited method of WhatMethod: c.setstring() with result of: {c.whatstring}");
         Console.Read();
     }
 }
